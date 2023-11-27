@@ -1,5 +1,5 @@
-#ifndef _PRIVATE_PAGES_H_
-#define _PRIVATE_PAGES_H_
+#ifndef BP_TREE_PRIVATE_PAGES_H_
+#define BP_TREE_PRIVATE_PAGES_H_
 
 #ifdef __cplusplus
 extern "C" {
@@ -122,4 +122,4 @@ struct bp__page_search_res_s {
 } /* extern "C" */
 #endif
 
-#endif /* _PRIVATE_PAGES_H_ */
+#endif /* BP_TREE_PRIVATE_PAGES_H_ */

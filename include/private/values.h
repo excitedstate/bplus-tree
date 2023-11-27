@@ -1,5 +1,5 @@
-#ifndef _PRIVATE_VALUES_H_
-#define _PRIVATE_VALUES_H_
+#ifndef BP_TREE_PRIVATE_VALUES_H_
+#define BP_TREE_PRIVATE_VALUES_H_
 
 #ifdef __cplusplus
 extern "C" {
@@ -46,4 +46,4 @@ struct bp__kv_s {
 } /* extern "C" */
 #endif
 
-#endif /* _PRIVATE_VALUES_H_ */
+#endif /* BP_TREE_PRIVATE_VALUES_H_ */

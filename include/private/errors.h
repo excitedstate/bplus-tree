@@ -1,5 +1,5 @@
-#ifndef _PRIVATE_ERRORS_H_
-#define _PRIVATE_ERRORS_H_
+#ifndef BP_TREE_PRIVATE_ERRORS_H_
+#define BP_TREE_PRIVATE_ERRORS_H_
 
 #define BP_OK              0
 
@@ -24,4 +24,4 @@
 #define BP_EUPDATECONFLICT 0x404
 #define BP_EREMOVECONFLICT 0x405
 
-#endif /* _PRIVATE_ERRORS_H_ */
+#endif /* BP_TREE_PRIVATE_ERRORS_H_ */

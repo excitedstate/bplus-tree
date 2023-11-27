@@ -10,14 +10,13 @@
 int bp__value_load(bp_db_t *t,
                    const uint64_t offset,
                    const uint64_t length,
-                   bp_value_t *value)
-{
+                   bp_value_t *value) {
     int ret;
-    char* buff;
+    char *buff;
     uint64_t buff_len = length;
 
     /* read data from disk first */
-    ret = bp__writer_read((bp__writer_t*) t,
+    ret = bp__writer_read((bp__writer_t *) t,
                           kCompressed,
                           offset,
                           &buff_len,
@@ -48,10 +47,9 @@ int bp__value_save(bp_db_t *t,
                    const bp_value_t *value,
                    const bp__kv_t *previous,
                    uint64_t *offset,
-                   uint64_t *length)
-{
+                   uint64_t *length) {
     int ret;
-    char* buff;
+    char *buff;
 
     buff = malloc(value->length + 16);
     if (buff == NULL) return BP_EALLOC;
@@ -80,8 +78,7 @@ int bp__value_save(bp_db_t *t,
 }
 
 
-int bp__kv_copy(const bp__kv_t *source, bp__kv_t *target, int alloc)
-{
+int bp__kv_copy(const bp__kv_t *source, bp__kv_t *target, int alloc) {
     /* copy key fields */
     if (alloc) {
         target->value = malloc(source->length);

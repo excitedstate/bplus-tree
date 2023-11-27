@@ -1,5 +1,5 @@
-#ifndef _BPLUS_H_
-#define _BPLUS_H_
+#ifndef BP_TREE_BPLUS_H_
+#define BP_TREE_BPLUS_H_
 
 #ifdef __cplusplus
 extern "C" {
@@ -181,4 +181,4 @@ struct bp_key_s {
 } // extern "C"
 #endif
 
-#endif /* _BPLUS_H_ */
+#endif /* BP_TREE_BPLUS_H_ */

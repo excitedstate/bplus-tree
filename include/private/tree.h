@@ -1,5 +1,5 @@
-#ifndef _PRIVATE_TREE_H_
-#define _PRIVATE_TREE_H_
+#ifndef BP_TREE_PRIVATE_TREE_H_
+#define BP_TREE_PRIVATE_TREE_H_
 
 #ifdef __cplusplus
 extern "C" {
@@ -43,4 +43,4 @@ struct bp__tree_head_s {
 } /* extern "C" */
 #endif
 
-#endif /* _PRIVATE_TREE_H_ */
+#endif /* BP_TREE_PRIVATE_TREE_H_ */

@@ -10,8 +10,7 @@
 #include <string.h> /* memset */
 #include <errno.h> /* errno */
 
-int bp__writer_create(bp__writer_t *w, const char *filename)
-{
+int bp__writer_create(bp__writer_t *w, const char *filename) {
     off_t filesize;
     size_t filename_length;
 
@@ -37,21 +36,19 @@ int bp__writer_create(bp__writer_t *w, const char *filename)
 
     return BP_OK;
 
-error:
+    error:
     free(w->filename);
     return BP_EFILE;
 }
 
-int bp__writer_destroy(bp__writer_t *w)
-{
+int bp__writer_destroy(bp__writer_t *w) {
     free(w->filename);
     w->filename = NULL;
     if (close(w->fd)) return BP_EFILE;
     return BP_OK;
 }
 
-int bp__writer_fsync(bp__writer_t *w)
-{
+int bp__writer_fsync(bp__writer_t *w) {
 #ifdef F_FULLFSYNC
     /* OSX support */
     return fcntl(w->fd, F_FULLFSYNC);
@@ -60,8 +57,7 @@ int bp__writer_fsync(bp__writer_t *w)
 #endif
 }
 
-int bp__writer_compact_name(bp__writer_t *w, char **compact_name)
-{
+int bp__writer_compact_name(bp__writer_t *w, char **compact_name) {
     char *filename = malloc(strlen(w->filename) + sizeof(".compact") + 1);
     if (filename == NULL) return BP_EALLOC;
 
@@ -75,8 +71,7 @@ int bp__writer_compact_name(bp__writer_t *w, char **compact_name)
     return BP_OK;
 }
 
-int bp__writer_compact_finalize(bp__writer_t *s, bp__writer_t *t)
-{
+int bp__writer_compact_finalize(bp__writer_t *s, bp__writer_t *t) {
     int ret;
     char *name, *compacted_name;
 
@@ -98,7 +93,7 @@ int bp__writer_compact_finalize(bp__writer_t *s, bp__writer_t *t)
     if (ret != BP_OK) goto fatal;
     ret = bp__init((bp_db_t *) s);
 
-fatal:
+    fatal:
     free(compacted_name);
     free(name);
 
@@ -109,8 +104,7 @@ int bp__writer_read(bp__writer_t *w,
                     const enum comp_type comp,
                     const uint64_t offset,
                     uint64_t *size,
-                    void **data)
-{
+                    void **data) {
     ssize_t bytes_read;
     char *cdata;
 
@@ -169,8 +163,7 @@ int bp__writer_write(bp__writer_t *w,
                      const enum comp_type comp,
                      const void *data,
                      uint64_t *offset,
-                     uint64_t *size)
-{
+                     uint64_t *size) {
     ssize_t written;
     uint32_t padding = sizeof(w->padding) - (w->filesize % sizeof(w->padding));
 
@@ -218,13 +211,12 @@ int bp__writer_write(bp__writer_t *w,
     return BP_OK;
 }
 
-int bp__writer_find(bp__writer_t*w,
+int bp__writer_find(bp__writer_t *w,
                     const enum comp_type comp,
                     const uint64_t size,
                     void *data,
                     bp__writer_cb seek,
-                    bp__writer_cb miss)
-{
+                    bp__writer_cb miss) {
     int ret = 0;
     int match = 0;
     uint64_t offset, size_tmp;

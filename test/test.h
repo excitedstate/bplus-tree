@@ -35,11 +35,11 @@
     }
 
 #define BENCH_START(name, num)                                 \
-    timeval __bench_##name##_start;                            \
+    struct timeval __bench_##name##_start;                            \
     gettimeofday(&__bench_##name##_start, NULL);
 
 #define BENCH_END(name, num)                                   \
-    timeval __bench_##name##_end;                              \
+    struct timeval __bench_##name##_end;                              \
     gettimeofday(&__bench_##name##_end, NULL);                 \
     double __bench_##name##_total =                            \
         __bench_##name##_end.tv_sec -                          \

@@ -1,5 +1,5 @@
-#ifndef _PRIVATE_WRITER_H_
-#define _PRIVATE_WRITER_H_
+#ifndef BP_TREE_PRIVATE_WRITER_H_
+#define BP_TREE_PRIVATE_WRITER_H_
 
 #include <stdint.h>
 
@@ -55,4 +55,4 @@ struct bp__writer_s {
 } /* extern "C" */
 #endif
 
-#endif /* _PRIVATE_WRITER_H_ */
+#endif /* BP_TREE_PRIVATE_WRITER_H_ */
