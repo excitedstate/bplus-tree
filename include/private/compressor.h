@@ -72,7 +72,7 @@ int bp__compress(const char *input,
 }
 
 static inline
-int bp__uncompressed_length(const char *compressed,
+int bp__uncompressed_length(__attribute__((unused)) const char *compressed,
                             size_t compressed_length,
                             size_t *result) {
     *result = compressed_length;

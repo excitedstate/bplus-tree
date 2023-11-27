@@ -9,7 +9,7 @@ extern "C" {
 #include <stdint.h>
 
 #define BP__KV_HEADER_SIZE 24
-#define BP__KV_SIZE(kv)  BP__KV_HEADER_SIZE + kv.length
+#define BP__KV_SIZE(kv)  (BP__KV_HEADER_SIZE + kv.length)
 #define BP__STOVAL(str, key)		\
     key.value = (char *) str;           \
     key.length = strlen(str) + 1;
@@ -22,8 +22,8 @@ typedef struct bp__kv_s bp__kv_t;
 
 
 int bp__value_load(bp_db_t *t,
-                   const uint64_t offset,
-                   const uint64_t length,
+                   uint64_t offset,
+                   uint64_t length,
                    bp_value_t *value);
 int bp__value_save(bp_db_t *t,
                    const bp_value_t *value,

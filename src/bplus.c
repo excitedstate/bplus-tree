@@ -138,12 +138,12 @@ int bp_bulk_update(bp_db_t *tree,
 }
 
 
-int bp_set(bp_db_t *tree, const bp_key_t *key, const bp_value_t *value) {
+__attribute__((unused)) int bp_set(bp_db_t *tree, const bp_key_t *key, const bp_value_t *value) {
     return bp_update(tree, key, value, NULL, NULL);
 }
 
 
-int bp_bulk_set(bp_db_t *tree,
+__attribute__((unused)) int bp_bulk_set(bp_db_t *tree,
                 const uint64_t count,
                 const bp_key_t **keys,
                 const bp_value_t **values) {
@@ -169,7 +169,7 @@ int bp_removev(bp_db_t *tree,
     return ret;
 }
 
-int bp_remove(bp_db_t *tree, const bp_key_t *key) {
+__attribute__((unused)) int bp_remove(bp_db_t *tree, const bp_key_t *key) {
     return bp_removev(tree, key, NULL, NULL);
 }
 
@@ -236,7 +236,7 @@ int bp_get_filtered_range(bp_db_t *tree,
     return ret;
 }
 
-int bp_get_range(bp_db_t *tree,
+__attribute__((unused)) int bp_get_range(bp_db_t *tree,
                  const bp_key_t *start,
                  const bp_key_t *end,
                  bp_range_cb cb,
@@ -382,7 +382,7 @@ void bp_set_compare_cb(bp_db_t *tree, bp_compare_cb cb) {
 }
 
 
-int bp_fsync(bp_db_t *tree) {
+__attribute__((unused)) int bp_fsync(bp_db_t *tree) {
     int ret;
 
     pthread_rwlock_wrlock(&tree->rwlock);

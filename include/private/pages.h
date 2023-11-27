@@ -31,19 +31,19 @@ int bp__page_clone(bp_db_t *t, bp__page_t *page, bp__page_t **clone);
 
 int bp__page_read(bp_db_t *t, bp__page_t *page);
 int bp__page_load(bp_db_t *t,
-                  const uint64_t offset,
-                  const uint64_t config,
+                  uint64_t offset,
+                  uint64_t config,
                   bp__page_t **page);
 int bp__page_save(bp_db_t *t, bp__page_t *page);
 
 int bp__page_load_value(bp_db_t *t,
                         bp__page_t *page,
-                        const uint64_t index,
+                        uint64_t index,
                         bp_value_t *value);
 int bp__page_save_value(bp_db_t *t,
                         bp__page_t *page,
-                        const uint64_t index,
-                        const int cmp,
+                        uint64_t index,
+                        int cmp,
                         const bp_key_t *key,
                         const bp_value_t *value,
                         bp_update_cb cb,
@@ -52,7 +52,7 @@ int bp__page_save_value(bp_db_t *t,
 int bp__page_search(bp_db_t *t,
                     bp__page_t *page,
                     const bp_key_t *key,
-                    const enum search_type type,
+                    enum search_type type,
                     bp__page_search_res_t *result);
 int bp__page_get(bp_db_t *t,
                  bp__page_t *page,
@@ -86,15 +86,15 @@ int bp__page_remove(bp_db_t *t,
                     void *arg);
 int bp__page_copy(bp_db_t *source, bp_db_t *target, bp__page_t *page);
 
-int bp__page_remove_idx(bp_db_t *t, bp__page_t *page, const uint64_t index);
+int bp__page_remove_idx(bp_db_t *t, bp__page_t *page, uint64_t index);
 int bp__page_split(bp_db_t *t,
                    bp__page_t *parent,
-                   const uint64_t index,
+                   uint64_t index,
                    bp__page_t *child);
 int bp__page_split_head(bp_db_t *t, bp__page_t **page);
 
-void bp__page_shiftr(bp_db_t *t, bp__page_t *page, const uint64_t index);
-void bp__page_shiftl(bp_db_t *t, bp__page_t *page, const uint64_t index);
+void bp__page_shiftr(bp_db_t *t, bp__page_t *page, uint64_t index);
+void bp__page_shiftl(bp_db_t *t, bp__page_t *page, uint64_t index);
 
 struct bp__page_s {
     enum page_type type;

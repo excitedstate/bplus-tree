@@ -1,18 +1,40 @@
 # What is B+ Tree?
-A B-tree is a self-balancing tree data structure that maintains sorted data and allows searches, sequential access, insertions, and deletions in logarithmic time. The B-tree generalizes the binary search tree, allowing for nodes with more than two children.
 
-For more info [Click](https://en.wikipedia.org/wiki/B-tree#:~:text=In%20computer%20science%2C%20a%20B,with%20more%20than%20two%20children) .
+A B-tree is a self-balancing tree data structure that maintains sorted data and allows searches, sequential access,
+insertions, and deletions in logarithmic time. The B-tree generalizes the binary search tree, allowing for nodes with
+more than two children.
+
+For more
+info [Click](https://en.wikipedia.org/wiki/B-tree#:~:text=In%20computer%20science%2C%20a%20B,with%20more%20than%20two%20children) .
 
 # Implementation of B+ tree using C
 
 ## Depedency
+
 The implementation depends on Google's [snappy](https://github.com/google/snappy) library for fast compression.
 
 ## Build
+
+### by CMake
+
+```bash
+mkdir -p build
+cd build
+cmake .. -DCMAKE_BUILD_TYPE=Release
+make
+
+```
+
+### by Makefile
+
+WARN: Makefile has been removed `temp`
+
 ```bash
 make MODE=release
 ```
+
 optionally, you can execute test suite:
+
 ```bash
 make check
 ```
