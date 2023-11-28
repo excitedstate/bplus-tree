@@ -22,8 +22,7 @@ static inline
 int bp__compress(const char *input,
                  size_t input_length,
                  char *compressed,
-                 size_t *compressed_length)
-{
+                 size_t *compressed_length){
     int ret = snappy_compress(input, input_length,
                               compressed, compressed_length);
     return ret == SNAPPY_OK ? BP_OK : BP_ECOMP;
@@ -62,28 +61,28 @@ size_t bp__max_compressed_size(size_t size) {
 }
 
 static inline
-int bp__compress(const char *input,
+int bp__compress(const char* input,
                  size_t input_length,
-                 char *compressed,
-                 size_t *compressed_length) {
+                 char* compressed,
+                 size_t* compressed_length) {
     memcpy(compressed, input, input_length);
     *compressed_length = input_length;
     return BP_OK;
 }
 
 static inline
-int bp__uncompressed_length(__attribute__((unused)) const char *compressed,
+int bp__uncompressed_length(__attribute__((unused)) const char* compressed,
                             size_t compressed_length,
-                            size_t *result) {
+                            size_t* result) {
     *result = compressed_length;
     return BP_OK;
 }
 
 static inline
-int bp__uncompress(const char *compressed,
+int bp__uncompress(const char* compressed,
                    size_t compressed_length,
-                   char *uncompressed,
-                   size_t *uncompressed_length) {
+                   char* uncompressed,
+                   size_t* uncompressed_length) {
     memcpy(uncompressed, compressed, compressed_length);
     *uncompressed_length = compressed_length;
     return BP_OK;

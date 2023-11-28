@@ -4,7 +4,6 @@ TEST_START("basic benchmark", "basic-bench")
     const int num = 500000;
     const int value_len = 1000;
     const int delta = 20000;
-    int i, start;
 
     char keys[num][10];
     char value[value_len];
@@ -19,20 +18,20 @@ TEST_START("basic benchmark", "basic-bench")
     }
     value[value_len - 1] = 0;
 
-    for (start = 0; start < num; start += delta) {
+    for (int start = 0; start < num; start += delta) {
         fprintf(stdout, "%d items in db\n", start);
 
         BENCH_START(write, delta)
-        for (i = start; i < start + delta; i++) {
+        for (int i = start; i < start + delta; i++) {
             bp_sets(&db, keys[i], value);
         }
         BENCH_END(write, delta)
 
         BENCH_START(read, start + delta)
-        for (i = 0; i < start + delta; i++) {
-            char *value1;
-            bp_gets(&db, keys[i], &value1);
-            free(value1);
+        for (int i = 0; i < start + delta; i++) {
+            char* v;
+            bp_gets(&db, keys[i], &v);
+            free(v);
         }
         BENCH_END(read, start + delta)
     }
@@ -42,23 +41,23 @@ TEST_START("basic benchmark", "basic-bench")
     BENCH_END(compact, 0)
 
     BENCH_START(read_after_compact, num)
-    for (i = 0; i < num; i++) {
-        char *value;
-        bp_gets(&db, keys[i], &value);
-        free(value);
+    for (int i = 0; i < num; i++) {
+        char* v;
+        bp_gets(&db, keys[i], &v);
+        free(v);
     }
     BENCH_END(read_after_compact, num)
 
     BENCH_START(read_after_compact_with_os_cache, num)
-    for (i = 0; i < num; i++) {
-        char *value;
-        bp_gets(&db, keys[i], &value);
-        free(value);
+    for (int i = 0; i < num; i++) {
+        char* v;
+        bp_gets(&db, keys[i], &v);
+        free(v);
     }
     BENCH_END(read_after_compact_with_os_cache, num)
 
     BENCH_START(remove, num)
-    for (i = 0; i < num; i++) {
+    for (int i = 0; i < num; i++) {
         bp_removes(&db, keys[i]);
     }
     BENCH_END(remove, num)

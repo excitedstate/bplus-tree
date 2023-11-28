@@ -9,7 +9,7 @@ info [Click](https://en.wikipedia.org/wiki/B-tree#:~:text=In%20computer%20scienc
 
 # Implementation of B+ tree using C
 
-## Depedency
+## Dependency
 
 The implementation depends on Google's [snappy](https://github.com/google/snappy) library for fast compression.
 
