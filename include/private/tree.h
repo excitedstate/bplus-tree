@@ -5,10 +5,12 @@
 extern "C" {
 #endif
 
-#include "private/writer.h"
-#include "private/pages.h"
+//#include "private/writer.h"
+//#include "private/pages.h"
 
 #include <pthread.h>
+#include "writer.h"
+#include "pages.h"
 
 #define BP__HEAD_SIZE  sizeof(uint64_t) * 4
 

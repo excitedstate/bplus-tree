@@ -5,8 +5,9 @@
 extern "C" {
 #endif
 
-#include "private/tree.h"
+//#include "private/tree.h"
 #include <stdint.h>
+#include "tree.h"
 
 #define BP__KV_HEADER_SIZE 24
 #define BP__KV_SIZE(kv)  (BP__KV_HEADER_SIZE + kv.length)
