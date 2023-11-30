@@ -57,10 +57,10 @@ int main(void) {
   bp_sets(&db, "key", "value");
 
   /* Get some value */
-  bp_value_t value;
+  char* value;
   bp_gets(&db, "key", &value);
-  fprintf(stdout, "%s\n", value.value);
-  free(value.value)
+  fprintf(stdout, "%s\n", value);
+  free(value)
 
   /* Close database */
   bp_close(&db);
